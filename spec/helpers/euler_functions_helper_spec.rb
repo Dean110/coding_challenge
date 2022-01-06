@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'prime'
 
 # Specs in this file have access to a helper object that includes
 # the EulerFunctionsHelper. For example:
@@ -81,6 +82,52 @@ RSpec.describe EulerFunctionsHelper, type: :helper do
     
     it "given 100, returns 10" do
       expect(helper.euler_two 100).to eq(10)
+    end
+  end
+
+  describe "finding the largest prime factor for a very large number" do
+    it "given 1, returns 1" do
+      expect(helper.euler_three 1).to eq(1)
+    end
+
+    it "given 2, returns 2" do
+      expect(helper.euler_three 2).to eq(2)
+    end
+    
+    it "given 4, returns 2" do 
+      expect(helper.euler_three 4).to eq(2)
+    end
+
+    it "given 5, returns 5" do
+      expect(helper.euler_three 5).to eq(5)
+    end
+
+    it "given 6, returns 3" do
+      expect(helper.euler_three 6).to eq(3)
+    end
+
+    it "given 7, returns 7" do
+      expect(helper.euler_three 7).to eq(7)
+    end
+    
+    it "given 8, returns 2" do
+      expect(helper.euler_three 8).to eq(2)
+    end
+
+    it "given 9, returns 3" do
+      expect(helper.euler_three 9).to eq(3)
+    end
+  
+    it "given 10, returns 5" do
+      expect(helper.euler_three 10).to eq(5)
+    end
+
+    it "given 11, returns 11" do
+      expect(helper.euler_three 11).to eq(11)
+    end
+
+    it "given 13195, returns 29" do
+      expect(helper.euler_three 13195).to eq(29)
     end
   end
 end

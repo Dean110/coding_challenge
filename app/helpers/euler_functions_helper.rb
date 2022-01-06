@@ -1,4 +1,5 @@
 module EulerFunctionsHelper
+require 'prime' 
 
     # https://projecteuler.net/problem=1
     def euler_one(number_to_act_on)
@@ -29,5 +30,23 @@ module EulerFunctionsHelper
         end
 
         sum
+    end
+       
+    # https://projecteuler.net/problem=3
+    def euler_three(number_to_factor)
+
+        return number_to_factor if number_to_factor < 4
+
+        factors = Array.new
+
+        i = 2
+        while i <= number_to_factor
+            if number_to_factor % i == 0 &&  Prime.prime?(i)
+                factors.append(i) 
+            end
+            i = i + 1
+        end
+        return factors.max()
+        
     end
 end
