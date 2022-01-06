@@ -10,4 +10,24 @@ module EulerFunctionsHelper
 
         count
     end
+    # https://projecteuler.net/problem=2
+    def euler_two(number_not_to_exceed)
+
+        sum = 0
+        return sum if number_not_to_exceed < 3
+        
+        i=3
+        sum = 2
+        first_value = 2
+
+        while i < number_not_to_exceed
+            sum += i if i % 2 == 0   
+            next_value = first_value + i
+            first_value = i
+            i = next_value
+            puts next_value
+        end
+
+        sum
+    end
 end

@@ -31,9 +31,56 @@ RSpec.describe EulerFunctionsHelper, type: :helper do
 
     it "given 6, returns 8" do
       expect(helper.euler_one 6).to eq(8)
-  end
-  it "given 10, returns 23" do
+    end
+    it "given 10, returns 23" do
     expect(helper.euler_one 10).to eq(23)
-end
+    end
+  end
+
+  describe "Summing the even numbers in the Fibbonaci sequence below a given number" do
+  
+    it "given 0, returns 0" do
+      expect(helper.euler_two 0).to eq(0)
+    end
+
+    it "given 1, returns 0" do
+      expect(helper.euler_two 1).to eq(0)
+    end
+
+    it "given 2, returns 0" do
+      expect(helper.euler_two 2).to eq(0)
+    end
+
+    it "given 3, returns 2" do
+      expect(helper.euler_two 3).to eq(2)
+    end
+
+    it "given 4, returns 2" do
+      expect(helper.euler_two 4).to eq(2)
+    end
+
+    it "given 5, returns 2" do
+      expect(helper.euler_two 5).to eq(2)
+    end
+
+    it "given 6, returns 2" do
+      expect(helper.euler_two 6).to eq(2)
+    end
+
+    it "given 7, returns 2" do
+      expect(helper.euler_two 7).to eq(2)
+    end
+
+    it "given 8, returns 2" do
+      expect(helper.euler_two 8).to eq(2)
+    end
+
+    it "given 9, returns 10" do
+      expect(helper.euler_two 9).to eq(10)
+    end
+    
+    it "given 100, returns 10" do
+      expect(helper.euler_two 100).to eq(10)
+    end
   end
 end
