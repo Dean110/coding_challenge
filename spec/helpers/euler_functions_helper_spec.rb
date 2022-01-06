@@ -11,5 +11,18 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe EulerFunctionsHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "Summing the numbers that are have factors of 3 or 5 up to and including a given number." do
+    
+    it "given 0, returns 0" do
+      expect(helper.euler_one 0).to eq(0)
+    end
+
+    it "given 1, returns 1" do
+      expect(helper.euler_one 1).to eq(0)
+    end
+    
+    it "given 3, returns 3" do
+        expect(helper.euler_one 3).to eq(3)
+    end
+  end
 end
