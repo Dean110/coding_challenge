@@ -76,10 +76,6 @@ RSpec.describe EulerFunctionsHelper, type: :helper do
   end
 
   describe 'finding the largest prime factor for a very large number' do
-    it 'given 1, returns 1' do
-      expect(helper.euler_three(1)).to eq(1)
-    end
-
     it 'given 2, returns 2' do
       expect(helper.euler_three(2)).to eq(2)
     end
@@ -122,6 +118,10 @@ RSpec.describe EulerFunctionsHelper, type: :helper do
 
     it 'given 21023, returns 21023' do
       expect(helper.euler_three(21_023)).to eq(21_023)
+    end
+    
+    it 'given a ridculously high number...' do
+      expect(helper. euler_three(600851475143)).to eq(6857)
     end
   end
 end

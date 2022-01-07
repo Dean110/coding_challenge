@@ -36,15 +36,6 @@ module EulerFunctionsHelper
 
   # https://projecteuler.net/problem=3
   def euler_three(number_to_factor)
-    return number_to_factor if number_to_factor < 4
-
-    factors = []
-
-    i = 2
-    while i <= number_to_factor
-      factors.append(i) if (number_to_factor % i).zero? && Prime.prime?(i)
-      i += 1
-    end
-    factors.max
+    number_to_factor.prime_division.last.first
   end
 end
