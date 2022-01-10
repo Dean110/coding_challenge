@@ -18,7 +18,7 @@ RSpec.describe "problem_infos/edit", type: :view do
 
       assert_select "input[name=?]", "problem_info[answer]"
 
-      assert_select "input[name=?]", "problem_info[username_id]"
+      assert_select "input[name=?]", "problem_info[user_id]"
     end
   end
 end

@@ -5,5 +5,11 @@
   <%= @user.username %>
 </p>
 
+<% @user.problem_infos.each do |problem_info| %>
+  <%= link_to problem_info.problem_id, problem_info_path(problem_info.id) %>
+<% end %>
+  
+
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

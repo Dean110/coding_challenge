@@ -15,11 +15,11 @@ ActiveRecord::Schema.define(version: 2022_01_07_195422) do
   create_table "problem_infos", force: :cascade do |t|
     t.string "key"
     t.string "answer"
-    t.integer "username_id", null: false
+    t.integer "user_id", null: false
     t.string "problem_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["username_id"], name: "index_problem_infos_on_username_id"
+    t.index ["user_id"], name: "index_problem_infos_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -29,5 +29,5 @@ ActiveRecord::Schema.define(version: 2022_01_07_195422) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
-  add_foreign_key "problem_infos", "usernames"
+  add_foreign_key "problem_infos", "users"
 end

@@ -7,7 +7,8 @@
     <tr>
       <th>Key</th>
       <th>Answer</th>
-      <th>Username</th>
+      <th>Problem ID</th>
+      <th>User ID</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,7 +18,8 @@
       <tr>
         <td><%= problem_info.key %></td>
         <td><%= problem_info.answer %></td>
-        <td><%= problem_info.username_id %></td>
+        <td><%= problem_info.problem_id%></td>
+        <td><%= problem_info.user_id %></td>
         <td><%= link_to 'Show', problem_info %></td>
         <td><%= link_to 'Edit', edit_problem_info_path(problem_info) %></td>
         <td><%= link_to 'Destroy', problem_info, method: :delete, data: { confirm: 'Are you sure?' } %></td>

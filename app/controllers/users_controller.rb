@@ -1,4 +1,7 @@
+require 'httparty'
+
 class UsersController < ApplicationController
+
   before_action :set_user, only: %i[ show edit update destroy ]
 
   # GET /users or /users.json
@@ -13,6 +16,7 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
+
   end
 
   # GET /users/1/edit
@@ -22,7 +26,20 @@ class UsersController < ApplicationController
   # POST /users or /users.json
   def create
     @user = User.new(user_params)
-
+    puts "##################  -  #{user_params}"
+    problem1_key = rand(1000 .. 5000)
+    # https://us-central1-code-challenge-hack-days.cloudfunctions.net/euler_one?key=1000
+    #response = HTTParty.get('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY')
+    # puts response.body if response.code == 200
+    problem1_answer_url = "https://us-central1-code-challenge-hack-days.cloudfunctions.net/euler_one?key=#{problem1_key}"
+    problem1_answer = HTTParty.get(problem1_answer_url).body
+    ProblemInfo.new(:key => problem1_key, :answer => problem1_answer, :problem_id => "1", :user => @user).save
+    
+    problem2_key = rand(4_000_000 .. 8_000_000_000)
+    problem2_answer_url = "https://us-central1-code-challenge-hack-days.cloudfunctions.net/euler_two?key=#{problem2_key}"
+    problem2_answer = HTTParty.get(problem2_answer_url).body
+    ProblemInfo.new(:key => problem2_key, :answer => problem2_answer, :problem_id => "2", :user => @user).save
+    
     respond_to do |format|
       if @user.save
         format.html { redirect_to user_url(@user), notice: "User was successfully created." }

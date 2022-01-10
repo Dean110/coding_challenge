@@ -65,6 +65,6 @@ class ProblemInfosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def problem_info_params
-      params.require(:problem_info).permit(:key, :answer, :username_id)
+      params.require(:problem_info).permit(:key, :answer, :user_id)
     end
 end
