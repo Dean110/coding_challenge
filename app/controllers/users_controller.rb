@@ -33,7 +33,8 @@ class UsersController < ApplicationController
     # puts response.body if response.code == 200
     problem1_answer_url = "https://us-central1-code-challenge-hack-days.cloudfunctions.net/euler_one?key=#{problem1_key}"
     problem1_answer = HTTParty.get(problem1_answer_url).body
-    ProblemInfo.new(:key => problem1_key, :answer => problem1_answer, :problem_id => "1", :user => @user).save
+    problem1_description = _problem1_description(:key =>problem1_key)
+    ProblemInfo.new(:key => problem1_key, :answer => problem1_answer, :description => problem1_description, :problem_id => "1", :user => @user).save
     
     problem2_key = rand(4_000_000 .. 8_000_000_000)
     problem2_answer_url = "https://us-central1-code-challenge-hack-days.cloudfunctions.net/euler_two?key=#{problem2_key}"
@@ -84,4 +85,11 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:username)
     end
+
+    def _problem1_description(key:)
+    "If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
+
+    Find the sum of all the multiples of 3 or 5 below #{key}."
+    end
+
 end

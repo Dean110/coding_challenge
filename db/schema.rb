@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_07_195422) do
+ActiveRecord::Schema.define(version: 2022_01_10_183248) do
 
   create_table "problem_infos", force: :cascade do |t|
     t.string "key"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2022_01_07_195422) do
     t.string "problem_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "description"
     t.index ["user_id"], name: "index_problem_infos_on_user_id"
   end
 

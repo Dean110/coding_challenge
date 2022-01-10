@@ -15,5 +15,29 @@
   <%= @problem_info.user_id %>
 </p>
 
+<p>
+  <strong>Description:</strong>
+  <%= @problem_info.description %>
+</p>
+
+<%= form_with do |form| %>
+  <%= label_tag(:answer, "Answer:") %>
+  <%= text_field_tag(:answer) %>
+  <%= submit_tag("Submit", :id => 'asdf') %>
+<%= form.hidden_field :problem_info_answer, :value => @problem_info.answer %>
+
+<% end %>
+<script>
+let submitButton = document.querySelector("#asdf")
+submitButton.addEventListener("click", (event)=>{
+  event.preventDefault();
+  if(document.querySelector("#problem_info_answer").value == document.querySelector("#answer").value){
+    alert("WINNER!!!!")
+  }else{
+    alert("TRY AGAIN")
+  }
+});
+
+</script>
 <%= link_to 'Edit', edit_problem_info_path(@problem_info) %> |
 <%= link_to 'Back', problem_infos_path %>
